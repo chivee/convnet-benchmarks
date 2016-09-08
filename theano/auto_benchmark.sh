@@ -1,7 +1,33 @@
 #!/usr/bin/env python
 
+
+# read the configure
 MINIBATCH_SIZE=64
 NUMBER_OF_MINIBATCHES=100
+
+for i in "$@"
+do
+case $i in
+    -m=*|--mini_batch_size=*)
+    MINIBATCH_SIZE="${i#*=}"
+    shift # past argument=value
+    ;;
+    -n=*|--num_batch=*)
+    NUMBER_OF_MINIBATCHES="${i#*=}"
+    shift # past argument=value
+    ;;
+    --default)
+    DEFAULT=YES
+    shift # past argument with no value
+    ;;
+    *)
+            # unknown option
+    ;;
+esac
+done
+echo "Mini Batch Size  = ${MINIBATCH_SIZE}"
+echo "Number of Batch = ${NUMBER_OF_MINIBATCHES}"
+
 
 # set env var
 CUR_DIR="$( cd "$(dirname "$0")" ; pwd -P )"
