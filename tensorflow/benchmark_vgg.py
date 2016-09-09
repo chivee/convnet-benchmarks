@@ -9,7 +9,7 @@ import tensorflow as tf
 FLAGS = tf.app.flags.FLAGS
 
 # TODO: why is batch size 64 going OOM?
-tf.app.flags.DEFINE_integer('batch_size', 64,
+tf.app.flags.DEFINE_integer('batch_size', 128,
                             """Batch size.""")
 tf.app.flags.DEFINE_integer('num_batches', 100,
                             """Number of batches to run.""")
